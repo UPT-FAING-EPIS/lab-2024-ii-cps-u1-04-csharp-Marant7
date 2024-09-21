@@ -23,4 +23,4 @@ app.MapGet("/api/bank", () =>
 .WithName("GetBankInfo")
 .WithOpenApi();
 
-app.Run();
+await app.RunAsync();
