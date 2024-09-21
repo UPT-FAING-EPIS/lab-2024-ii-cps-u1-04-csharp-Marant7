@@ -1,0 +1,11 @@
+﻿D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi.Tests\BanckAccountTests.cs
+C:\Users\mario\.nuget\packages\microsoft.net.test.sdk\17.8.0\build\netcoreapp3.1\Microsoft.NET.Test.Sdk.Program.cs
+C:\Users\mario\.nuget\packages\microsoft.testplatform.testhost\17.8.0\build\netcoreapp3.1\x64\testhost.exe
+C:\Users\mario\.nuget\packages\microsoft.testplatform.testhost\17.8.0\build\netcoreapp3.1\x64\testhost.dll
+C:\Users\mario\.nuget\packages\nunit3testadapter\4.6.0\build\netcoreapp3.1\NUnit3.TestAdapter.dll
+C:\Users\mario\.nuget\packages\nunit3testadapter\4.6.0\build\netcoreapp3.1\NUnit3.TestAdapter.pdb
+C:\Users\mario\.nuget\packages\nunit3testadapter\4.6.0\build\netcoreapp3.1\nunit.engine.dll
+C:\Users\mario\.nuget\packages\nunit3testadapter\4.6.0\build\netcoreapp3.1\nunit.engine.api.dll
+C:\Users\mario\.nuget\packages\nunit3testadapter\4.6.0\build\netcoreapp3.1\nunit.engine.core.dll
+C:\Users\mario\.nuget\packages\nunit3testadapter\4.6.0\build\netcoreapp3.1\testcentric.engine.metadata.dll
+D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi.Tests\TestResults\9d99fa31-dd9a-42bb-b693-85a61fc819cd\coverage.cobertura.xml

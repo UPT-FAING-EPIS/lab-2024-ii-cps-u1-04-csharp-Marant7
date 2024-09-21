@@ -1,0 +1,10 @@
+﻿D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi\Models\BankAccount.cs
+D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi\Program.cs
+D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi\obj\Debug\net8.0\Bank.WebApi.GlobalUsings.g.cs
+D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi\obj\Debug\net8.0\Bank.WebApi.AssemblyInfo.cs
+D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi\obj\Debug\net8.0\Bank.WebApi.MvcApplicationPartsAssemblyInfo.cs
+D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi\appsettings.Development.json
+D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi\appsettings.json
+D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi\Bank.WebApi.http
+D:\CALIDAD SOFTWARE\lab-2024-ii-cps-u1-04-csharp-Marant7\Bank\Bank.WebApi\Properties\launchSettings.json
