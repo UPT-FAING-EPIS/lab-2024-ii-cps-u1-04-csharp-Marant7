@@ -26,10 +26,14 @@ jobs:
         run: dotnet restore Bank
       - name: Ejecutar pruebas
         run: dotnet test Bank --collect:"XPlat Code Coverage;Format=opencover"
+      - name: Instalar ReportGenerator
+        run: dotnet tool install -g dotnet-reportgenerator-globaltool
+      - name: Generar informe de cobertura
+        run: reportgenerator -reports:**/coverage.opencover.xml -targetdir:coverage -reporttypes:Html
       - name: Instalar Scanner
         run: dotnet tool install -g dotnet-sonarscanner
       - name: Ejecutar escaneo
         run: | 
-          dotnet-sonarscanner begin /k:"${{ env.SONAR_PROJECT }}" /o:"${{ env.SONAR_ORG }}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="*/*/*/coverage.opencover.xml" /d:sonar.qualitygate.wait=true
+          dotnet-sonarscanner begin /k:"${{ env.SONAR_PROJECT }}" /o:"${{ env.SONAR_ORG }}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="Bank/Bank.WebApi.Tests/TestResults/**/coverage.opencover.xml" /d:sonar.qualitygate.wait=true
           dotnet build Bank
           dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
