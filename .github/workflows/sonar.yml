@@ -1,8 +1,9 @@
-name: Sonar Continuos Integration
+name: Sonar Continuous Integration
 env:
-  DOTNET_VERSION: '8.x'                     # la versión de .NET
-  SONAR_ORG: 'apibank211'                    # Nombre de la organización de sonar cloud
-  SONAR_PROJECT: 'apibank211_proyecto'        # Key ID del proyecto de sonar
+  DOTNET_VERSION: '8.x'                     # Versión de .NET
+  SONAR_ORG: 'apibank211'                    # Organización de SonarCloud
+  SONAR_PROJECT: 'apibank211_proyecto'       # Proyecto en SonarCloud
+
 on:
   push:
     branches: [ "main" ]
@@ -10,30 +11,56 @@ on:
 
 jobs:
   sonarqube:
-    name: Sonarqube Analisys
+    name: SonarQube Analysis
     runs-on: ubuntu-latest
+
     steps:
+      # Checkout del código
       - uses: actions/checkout@v4
+
+      # Configuración de Java 17
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
-      - name: Configurando la versión de NET
+
+      # Configurar la versión de .NET
+      - name: Configurar la versión de .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-      - name: Restaurar los paquetes
+
+      # Restaurar dependencias .NET
+      - name: Restaurar dependencias
         run: dotnet restore Bank
-      - name: Ejecutar pruebas
+
+      # Ejecutar pruebas y generar reporte de cobertura en formato OpenCover
+      - name: Ejecutar pruebas con cobertura
         run: dotnet test Bank --collect:"XPlat Code Coverage;Format=opencover"
+
+      # Instalar el generador de reportes de cobertura
       - name: Instalar ReportGenerator
         run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+      # Generar informe de cobertura en formato HTML para revisiones locales
       - name: Generar informe de cobertura
         run: reportgenerator -reports:**/coverage.opencover.xml -targetdir:coverage -reporttypes:Html
+
+      # Instalar el SonarScanner
       - name: Instalar Scanner
         run: dotnet tool install -g dotnet-sonarscanner
-      - name: Ejecutar escaneo
-        run: | 
-          dotnet-sonarscanner begin /k:"${{ env.SONAR_PROJECT }}" /o:"${{ env.SONAR_ORG }}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="Bank/Bank.WebApi.Tests/TestResults/**/coverage.opencover.xml" /d:sonar.qualitygate.wait=true
+
+      # Ejecutar análisis de SonarCloud
+      - name: Ejecutar análisis con SonarCloud
+        run: |
+          dotnet-sonarscanner begin /k:"${{ env.SONAR_PROJECT }}" /o:"${{ env.SONAR_ORG }}" \
+          /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
+          /d:sonar.host.url="https://sonarcloud.io" \
+          /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml" \
+          /d:sonar.qualitygate.wait=true
+
+          # Compilar el proyecto
           dotnet build Bank
+
+          # Finalizar el análisis
           dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
